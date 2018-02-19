@@ -20,7 +20,7 @@
                                 <h1 class="panel-title">My Recipes!</h1>
                             </div>
                             <div class="col-md-2">
-                                <a class="btn btn-default" href="#" th:href="@{'/recipe/new'}" role="button" sec:authorize="hasAuthority('ADMIN')">Add Recipe</a>
+                                <a class="btn btn-default" href="#" th:href="@{'/recipe/new'}" role="button" sec:authorize="hasAnyAuthority('ADMIN','USER')">Add Recipe</a>
                             </div>
                             <div class="col-md-2" sec:authorize="!isAuthenticated()">
                                 <a class="btn btn-default" href="#" th:href="@{/login}">Login</a>

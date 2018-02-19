@@ -24,8 +24,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/","/api/**","/webjars/**","/registration","/login","/v2/**","/swagger-resources/**","/swagger-ui.html").permitAll()
-            .antMatchers("/h2-console/**").permitAll()
+            .antMatchers("/","/webjars/**","/registration","/login","/v2/**","/swagger-resources/**","/swagger-ui.html","/swagger").permitAll()
+            .antMatchers("/h2-console/**","/api/**").hasAuthority("ADMIN")
             .anyRequest().authenticated()
             .and()
             .formLogin().loginPage("/login").failureUrl("/login?error=true")
